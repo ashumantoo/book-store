@@ -1,0 +1,6 @@
+<h4 class="mt-10 text-4xl font-bold text-center">Welcome to BookMYBook</h4>
+<div class="w-10/12 container grid grid-cols-3 mx-auto">
+  <ng-container *ngFor="let book of books; let i = index;">
+    <app-book-card [book]="book" />
+  </ng-container>
+</div>

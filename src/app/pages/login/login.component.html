@@ -1,0 +1,28 @@
+<div class="lg:w-4/12 shadow-md m-auto p-4 mb-8">
+  <h3 class="text-xl text-center font-semibold py-4">Login</h3>
+  <form class="flex flex-col" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="flex flex-col mb-1 mt-4">
+      <input class="p-2 border border-gray-300 rounded" type="email" name="email" placeholder="Enter your email"
+        formControlName="email">
+      <span *ngIf="loginForm.hasError('required','email') && loginForm.controls['email'].dirty"
+        class="text-red-500">*Email is required</span>
+      <span *ngIf="loginForm.hasError('email','email')" class="text-red-500">*Email is invalid</span>
+    </div>
+    <div class="flex flex-col mb-1 mt-4">
+      <input class="p-2 border border-gray-300 rounded" type="password" name="password"
+        placeholder="Enter your password" formControlName="password">
+      <span *ngIf="loginForm.hasError('required','password') && loginForm.controls['password'].dirty"
+        class="text-red-500">*Password is required</span>
+      <span *ngIf="loginForm.hasError('minlength','password')" class="text-red-500">*Password length should
+        atleast 6 character long.</span>
+    </div>
+    <div class="flex flex-col mb-1 mt-4">
+      <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid"
+        class="w-full bg-teal-500 py-2 rounded text-white font-semibold" type="submit">Submit</button>
+    </div>
+  </form>
+  <div class="mb-12 mt-2 flex justify-between">
+    <a routerLink="/forget-password" class="hover:cursor-pointer text-teal-500">Forgot password?</a>
+    <a routerLink="/register" class="hover:cursor-pointer text-teal-500">Register</a>
+  </div>
+</div>

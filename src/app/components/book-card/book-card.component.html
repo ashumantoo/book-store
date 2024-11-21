@@ -1,0 +1,23 @@
+<ng-container *ngIf="book">
+  <div class="container">
+    <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
+      <img [src]="book.image" alt="card-image" class="w-full h-72 object-contain" />
+      <div class="p-4">
+        <h6 class="mb-2 text-slate-800 text-xl font-semibold">
+          {{book.title}}
+        </h6>
+      </div>
+
+      <div class="px-4 pb-4 pt-0 mt-2 flex justify-between items-center">
+        <p class="text-lg font-semibold text-green-600">
+          Price: ₹{{book.price}}
+        </p>
+        <button
+          class="rounded bg-teal-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

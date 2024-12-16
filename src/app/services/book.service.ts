@@ -11,6 +11,10 @@ export class BookService {
   private httpClient = inject(HttpClient);
 
   getBooks() {
-    return this.httpClient.get<IApiResponse<IBook[]>>(API_URLS.getBooks, { withCredentials: true });
+    return this.httpClient.get<IApiResponse<IBook[]>>(API_URLS.getBooks);
+  }
+
+  getBook(id: string) {
+    return this.httpClient.get<IApiResponse<IBook>>(`${API_URLS.getBook}/${id}`);
   }
 }

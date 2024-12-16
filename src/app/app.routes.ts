@@ -6,12 +6,14 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { authGuard, notLoggedInGuard } from './auth.guard';
+import { BookDetailsComponent } from './pages/book-details/book-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: "full" },
   { path: "register", component: RegisterComponent, canActivate: [notLoggedInGuard] },
   { path: "login", component: LoginComponent, canActivate: [notLoggedInGuard] },
   { path: "home", component: HomeComponent, canActivate: [authGuard] },
+  { path: "book/:id", component: BookDetailsComponent, canActivate: [authGuard] },
   { path: "reset/:token", component: ResetPasswordComponent },
   { path: "forget-password", component: ForgetPasswordComponent },
   { path: "**", component: NotFoundComponent }

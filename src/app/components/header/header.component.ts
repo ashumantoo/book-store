@@ -30,10 +30,20 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigateByUrl('/login');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('username');
-    this.authService._isUserLoggedIn.next(false);
-    this.authService._loggedInUsername.next("");
+    this.authService.logout().subscribe({
+      next: (res: any) => {
+        if (res.success) {
+          this.router.navigateByUrl('/login');
+          localStorage.removeItem('userId');
+          localStorage.removeItem('username');
+          this.authService._isUserLoggedIn.next(false);
+          this.authService._loggedInUsername.next("");
+        }
+      }
+    });
+  }
+
+  clearCookie(): void {
+    document.cookie = `access_token=; Max-Age=0; path=/;`;
   }
 }

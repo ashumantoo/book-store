@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Inject, Input } from '@angular/core';
 import { IBook } from '../../utils/types';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-book-card',
@@ -11,4 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class BookCardComponent {
   @Input({ required: true }) book!: IBook;
+  private router = inject(Router);
+
+  goBookDetailsPage(id: string) {
+    this.router.navigateByUrl(`/book/${id}`);
+  }
 }

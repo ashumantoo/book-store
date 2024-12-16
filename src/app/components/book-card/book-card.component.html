@@ -1,6 +1,7 @@
 <ng-container *ngIf="book">
   <div class="container">
-    <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
+    <div (click)="goBookDetailsPage(book._id)"
+      class="relative cursor-pointer flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
       <img [src]="book.image" alt="card-image" class="w-full h-72 object-contain" />
       <div class="p-4">
         <h6 class="mb-2 text-slate-800 text-xl font-semibold">

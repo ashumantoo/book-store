@@ -17,7 +17,11 @@ export class AuthService {
   }
 
   login(loginPayload: any) {
-    return this.httpClient.post(API_URLS.login, loginPayload, { withCredentials: true });
+    return this.httpClient.post(API_URLS.login, loginPayload);
+  }
+
+  logout() {
+    return this.httpClient.post(API_URLS.logout, {});
   }
 
   forgetPassword(forgetPasswordData: any) {

@@ -1,0 +1,74 @@
+<div class="container">
+  <ng-container *ngIf="book">
+    <div class="bg-gray-100 min-h-screen p-6">
+      <span class="font-bold cursor-pointer" routerLink="/home">&larr; Back</span>
+      <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <!-- Book Details Container -->
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- Book Cover -->
+          <div class="flex-shrink-0">
+            <img [src]="book.image" alt="Book Cover" class="rounded-lg w-48 md:w-60">
+          </div>
+
+          <!-- Book Details -->
+          <div class="flex-grow flex flex-col">
+            <!-- Title, Author and Meta -->
+            <div>
+              <h1 class="text-3xl font-bold text-gray-900">{{ book.title }}</h1>
+              <p class="text-lg text-gray-600 mt-1">by <span class="font-medium text-gray-700">{{ book.author }}</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-1">Published: {{ book.publishedDate | date }}</p>
+            </div>
+
+            <!-- Description -->
+            <div class="mt-4">
+              <h2 class="text-xl font-semibold text-gray-800">Description</h2>
+              <p class="mt-2 text-gray-700 text-sm leading-relaxed">Lorem ipsum dolor, sit amet consectetur adipisicing
+                elit. Totam, asperiores molestiae. Aliquid recusandae accusamus dicta in, possimus animi corrupti quasi
+                deleniti dolores suscipit dignissimos perferendis sunt. Non dolores exercitationem recusandae. Aliquid
+                recusandae accusamus dicta in, possimus animi corrupti quasi
+                deleniti dolores suscipit dignissimos perferendis sunt.</p>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="mt-4">
+              <p class="text-gray-700 text-sm"><span class="font-medium">Page Count:</span> {{ book.totalPages }}</p>
+              <p class="text-gray-700 text-sm"><span class="font-medium">Price:</span> ₹{{ book.price }}</p>
+              <p class="text-gray-700 text-sm"><span class="font-medium">Language:</span> {{ book.language }}</p>
+              <p class="text-gray-700 text-sm"><span class="font-medium">Publisher:</span> {{ book.publisher }}</p>
+            </div>
+
+            <!-- Actions -->
+            <div class="mt-6 flex items-center gap-4">
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+                (click)="buyNow(book)">
+                Buy Now
+              </button>
+              <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg shadow hover:bg-gray-200 transition"
+                (click)="addToCart(book)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <!-- <div class="mt-10">
+          <h2 class="text-2xl font-semibold text-gray-800">Reviews</h2>
+          <div class="mt-4 space-y-4">
+            <div *ngFor="let review of book.reviews" class="bg-gray-50 rounded-lg shadow p-4 border border-gray-200">
+              <p class="text-sm text-gray-600">
+                <span class="font-medium text-gray-800">{{ review.reviewer }}</span> -
+                <span class="text-yellow-400">
+                  <ng-container *ngFor="let star of getStarsArray(review.rating)">⭐</ng-container>
+                </span>
+              </p>
+              <p class="mt-2 text-gray-700">{{ review.comment }}</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </ng-container>
+
+</div>

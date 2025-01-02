@@ -1,4 +1,5 @@
-export const BASE_API_URL = "http://localhost:4000/api"; //TODO: set this inside the .env file
+import { environment } from "../../environments/environment.development"
+export const BASE_API_URL = environment.apiUrl //TODO: set this inside the .env file
 export const API_URLS = {
   register: `${BASE_API_URL}/user/signup`,
   login: `${BASE_API_URL}/user/signin`,
